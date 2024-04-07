@@ -1,0 +1,284 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d0d0ce;
+    padding: 30px;
+}
+
+.container{
+    position: relative;
+    max-width: 850px;
+    width: 100%;
+    background-color: white;
+    padding: 30px 30px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    perspective: 4500px;
+    border-radius: 10px;
+}
+
+/* Cover the signup section with a picture  when focusing on the login part and vice versa  */
+
+.container .cover{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    z-index: 1;
+    transform-origin: left;
+    transition: all 1s ease;
+    transform-style: preserve-3d;
+}
+
+/* cover flipping  */
+.container #flip:checked ~ .cover{
+    transform: rotateY(-180deg);
+}
+
+.container .cover .front,
+.container .cover .back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+}
+.container .cover .back{
+    transform: rotateY(180deg);
+}
+.container .cover .blur{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #919191;
+    opacity: 0.2;
+    z-index: 100;
+}
+.container .cover .frontblur{
+    border-radius:0 10px 10px 0;
+}
+.container .cover .backblur{
+    border-radius:10px 0 0 10px;
+}
+
+.container .cover img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 12;
+
+}
+.container .cover .front img {
+    border-radius:0 10px 10px 0;
+}
+.container .cover .back img {
+    border-radius:10px 0 0 10px;
+}
+
+/* Form content that collects information from both the login and signup sections */
+
+.container .form-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Divides the distance in half between the login and signup sections  */
+
+.container .form-content .login-form,
+.container .form-content .signup-form{
+    width: calc(100% / 2 - 50px);
+}
+
+/* reduce logo width */
+.container .form-content .logo{
+    width: 120px;
+     top: auto;
+}
+
+
+.container .form-content .title-login,
+.container .form-content .title-singup{
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.container .form-content .input-boxes{
+    margin-top: 40px;
+}
+.container .form-content .input-box{
+    height: 50px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+
+
+.container .form-content .input-box input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 40px;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 5px;
+    border: 1px solid #919191;
+}
+.container .form-content .input-box input:focus,
+.container .form-content .input-box input:valid{
+    border: 1px solid black;
+
+}
+
+.container .form-content .input-box i{
+    position: absolute;
+    left: 10px;
+    color: #919191;
+}
+
+/* change color of icone when focusing and validiting the input */
+
+.container .form-content .input-box input:focus + i,
+.container .form-content .input-box input:valid + i{
+    color: black;
+}
+
+
+/* alert green message about validat input  */
+
+.container .form-content .input-box .text-checked{
+    position: absolute;
+    top: 58px;
+    left: 60px;
+    font-size: 15px;
+    font-weight: 500;
+    color: green;
+    visibility: hidden;
+}
+.container .form-content .input-box .text-checked i{
+    position: absolute;
+    left: -20px;
+    font-size: 17px;
+    color: green
+}
+
+/* alert red message about invalid input  */
+
+.container .form-content .input-box .text-unchecked{
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    font-size: 15px;
+    font-weight: 500;
+    color: red;
+    visibility: hidden;
+}
+.container .form-content .input-box .text-unchecked i{
+    position: absolute;
+    left: -15px;
+    font-size: 17px;
+    color: red;
+}
+
+/* change between valid and invalid message after checked input  */
+
+.container .form-content .email input:focus ~ .email-unchecked{
+    visibility: visible;
+}
+.container .form-content .email input:valid ~ .email-unchecked{
+    visibility: hidden;
+}
+.container .form-content .email input:valid ~ .email-checked{
+    visibility: visible;
+}
+
+.container .form-content .password input:focus ~ .password-unchecked{
+    visibility: visible;
+}
+.container .form-content .password input:valid ~ .password-unchecked{
+    visibility: hidden;
+}
+.container .form-content .password input:valid ~ .password-checked{
+    visibility: visible;
+}
+
+.container .form-content .name input:focus ~ .name-unchecked{
+    visibility: visible;
+}
+.container .form-content .name input:valid ~ .name-unchecked{
+    visibility: hidden;
+}
+.container .form-content .name input:valid ~ .name-checked{
+    visibility: visible;
+}
+
+
+.container .form-content .input-box .button{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+
+}
+.container .form-content .input-box .button:hover{
+    background-color: rgb(34, 34, 34);
+}
+.container .form-content .form .text-checking{
+    margin-top: 30px;
+}
+
+.container .form-content .form .text {
+
+    font-weight: 600;
+    font-size: 14px;
+    color: #919191;
+}
+.container .form-content .form .pass-forgot{
+    margin-bottom: 69px;
+}
+.container .form-content .form .text a{
+    text-decoration: none;
+    padding-bottom: 30px;
+    color: #919191;
+}
+
+.container .form-content .form .text a:hover{
+    text-decoration: underline;
+}
+.container .form-content .form .text label{
+    cursor: pointer;
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+}
+.container .form-content .form .text label:hover{
+    text-decoration: underline;
+}
+
+
+
+.container #flip{
+    display: none;
+}
+
+/* Responsive web design */
+
+.fa-user {
+    position: absolute;
+    top: 40px; /* position verticale */
+    left: 20px; /* position horizontale */
+
+ }

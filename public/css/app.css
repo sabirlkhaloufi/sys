@@ -1,0 +1,46 @@
+/*
+ Navbar */
+ .navbar {
+    background-color: #fff; /* Couleur de fond */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.navbar-brand {
+    font-size: 1.5rem; /* Taille de la police */
+    font-weight: bold; /* Gras */
+    color: #333; /* Couleur du texte */
+}
+
+.navbar-toggler-icon {
+    background-color: #333; /* Couleur de l'icône */
+}
+
+/* Liens de navigation */
+.navbar-nav .nav-link {
+    color: #333; /* Couleur du texte */
+    margin-right: 15px; /* Marge à droite */
+}
+
+.navbar-nav .nav-link:hover {
+    color: blueviolet; /* Couleur du texte au survol */
+}
+
+/* Dropdown */
+.dropdown-menu {
+    background-color: #fff; /* Couleur de fond */
+    border: none; /* Pas de bordure */
+}
+
+.dropdown-item {
+    color: #333; /* Couleur du texte */
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0; /* Couleur de fond au survol */
+}
+
+/* Contenu principal */
+main {
+    padding-top: 20px; /* Espacement en haut */
+    background-color: #f8f9fa; /* Couleur de fond */
+}
