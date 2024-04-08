@@ -11,18 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('annonces', function (Blueprint $table) {
+        Schema::create('post', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
+            $table->string('image')->nullable();// Colonne pour stocker le chemin d'accès à l'image
             $table->string('titre');
-            $table->longText('description');
+            $table->text('description');
+            $table->string('email')->unique();
             $table->text('localisation');
-            
-            $table->unsignedBigInteger('user_id'); // colonne pour la clé étrangère
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
-            $table->softDeletes();
+           
         });
     }
 
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('annonces');
+        Schema::dropIfExists('post');
     }
 };

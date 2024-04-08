@@ -146,15 +146,15 @@
                 <div class="carousel-item active">
                     <div class="card-deck">
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-                            @foreach($annonces as $annonce)
+                            @foreach($post as $post)
                                 <div class="col mb-4">
                                     <div class="card">
                                         <div class="img-wrapper">
-                                            <img src="{{ asset($annonce->image) }}" class="card-img-top" >
+                                            <img src="{{ asset($post->image) }}" class="card-img-top" >
 
                                         </div>
                                         <div class="card-body">
-                                            <h5 class="card-title">{{ $annonce->titre }}</h5>
+                                            <h5 class="card-title">{{ $post->titre }}</h5>
 
                                         </div>
                                         <div class="card-body">
