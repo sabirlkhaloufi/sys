@@ -6,7 +6,7 @@ use App\Models\post;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
-
+use Illuminate\Support\Facades\Auth;
 
 class postController extends Controller
 
@@ -19,7 +19,8 @@ class postController extends Controller
     }
     public function index(): view
     {
-        $post = post::all();
+        $userId = Auth::id();
+        $post = Post::where('user_id', $userId)->get();
         return view('post.index', compact('post'));
     }
 
@@ -40,6 +41,7 @@ class postController extends Controller
 
 
         ]);
+        $validatedData['user_id'] = Auth::id();
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
