@@ -14,7 +14,14 @@ class post extends Model
       'titre',
       'description',
       'email',
-      'localisation'
+      'localisation',
+      'user_id'
     ];
     use HasFactory;
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
