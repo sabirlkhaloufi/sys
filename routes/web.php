@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\postController::class, 'vu'])->name('welcome');
 
 
+
+
 Auth::routes();
 
 
+Route::get('/home', function () {
+    return view('dashboard.index');
+});
 
 
 
@@ -37,5 +43,3 @@ Route::get('/post/{id}/edit', [App\Http\Controllers\postController::class, 'edit
 Route::put('/post/{id}', [App\Http\Controllers\postController::class, 'update'])->name('post.update');
 
 Route::delete('/post/{id}', [App\Http\Controllers\postController::class, 'destroy'])->name('post.destroy');
-
-

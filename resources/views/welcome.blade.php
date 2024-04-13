@@ -76,8 +76,6 @@
     <!--/ Nav End /-->
     <!--/ Intro Skew Star /-->
     <div id="Accueil" class="intro route bg-image" style="background-image: url('{{ asset('img/don.jpeg') }}')">
-
-
         <div class="overlay-itro"></div>
         <div class="intro-content display-table">
             <div class="table-cell">
