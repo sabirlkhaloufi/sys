@@ -2,62 +2,44 @@
 @extends("layouts.dashboard.dashlayout")
 
 @section("content")
-<div class="container-xl">
-	<div class="table-responsive">
 
-        <div class="table-wrapper">
-			<div class="table-title">
-				<div class="row">
-					<div class="col-sm-6">
-						<h2>Details  <b>Annonces</b></h2>
-					</div>
-					<div class="col-sm-6">
-
-
-                        <a href="{{ route('post.create') }}" class="btn btn-success" >
-                            <i class="material-icons" >add</i> <span class="bold-text">Add  new post</span>
+<div class="card flex-fill">
+                  <div class="card-header d-flex justify-content-between">
+                    <h5 class="card-title mb-0">Annonces</h5>
+					<a href="{{ route('post.create') }}" class="btn btn-primary" >
+                            <i class="material-icons" >add</i> <span class="bold-text">Add new post</span>
                         </a>
-
-
-
-
-
-					</div>
-				</div>
-			</div>
-			<table class="table table-striped table-hover">
-				<thead>
-
-                            <!-- Vous pouvez ajouter une colonne pour la sélection ici si nécessaire -->
-                            <th>image</th>
-                            <th>titre</th>
-                            <th>description</th>
-                            <th>email</th>
-                            <th>localisation</th>
-                            <th>Actions</th>
-                        </tr>
+					
+                  </div>
+                  <table class="table table-hover my-0">
+                    <thead>
+                      <tr>
+						<th class="d-none d-xl-table-cell">image</th>
+                            <th class="d-none d-xl-table-cell">titre</th>
+                            <th class="d-none d-xl-table-cell">description</th>
+                            <th class="d-none d-xl-table-cell">email</th>
+                            <th class="d-none d-xl-table-cell">localisation</th>
+                            <th class="d-none d-xl-table-cell">Actions</th>
+                      </tr>
                     </thead>
                     <tbody>
-                        @foreach ($post as $post)
-
-                        <tr>
-
-                            <!-- Vous pouvez ajouter une colonne pour la sélection ici si nécessaire -->
-
-                            <td>{{ $post->image }}</td>
-                            <td>{{ $post->titre }}</td>
-                            <td>{{ $post->description }}</td>
-                            <td>{{ $post->email}}</td>
-                            <td>{{ $post->localisation }}</td>
-                            <td>
+						
+					@foreach ($post as $post)
+                      <tr>
+                        <td>{{ $post->image }}</td>
+                        <td class="d-none d-xl-table-cell">{{ $post->titre }}</td>
+                        <td class="d-none d-xl-table-cell">{{ $post->description }}</td>
+                        <td><span class="badge bg-success">{{ $post->email}}</span></td>
+                        <td class="d-none d-md-table-cell">{{ $post->localisation }}</td>
+						<td>
 
                                 <div class="d-flex align-items-center">
-                                    <a href="{{ route('post.edit', $post->id) }}" class="mr-2">
-                                        <i class="material-icons" style="color: orange;">edit</i> <!-- Utilisation de l'icône "edit" avec couleur orange -->
+                                    <a href="{{ route('post.edit', $post->id) }}" class="mr-2 btn btn-success btn-sm">
+                                        <i class="material-icons">edit</i> <!-- Utilisation de l'icône "edit" avec couleur orange -->
                                     </a>
 
-                                    <a href="{{ route('post.destroy', $post->id) }}" onclick="event.preventDefault(); if (confirm('Are you sure you want to delete this post?')) {document.getElementById('delete-form-{{ $post->id }}').submit();}" class="mr-2">
-                                        <i class="material-icons text-danger">delete</i> <!-- Utilisation de l'icône "delete" -->
+                                    <a href="{{ route('post.destroy', $post->id) }}" onclick="event.preventDefault(); if (confirm('Are you sure you want to delete this post?')) {document.getElementById('delete-form-{{ $post->id }}').submit();}" class="mr-2 btn btn-danger btn-sm">
+                                        <i class="material-icons">delete</i> <!-- Utilisation de l'icône "delete" -->
                                     </a>
 
                                     <form id="delete-form-{{ $post->id }}" action="{{ route('post.destroy', $post->id) }}" method="POST" style="display: none;">
@@ -69,14 +51,11 @@
 
 
                             </td>
+                      </tr>
+					  @endforeach
+                     
+                    </tbody>
+                  </table>
+                </div>
 
-                        </tr>
-
-                    @endforeach
-
-			</table>
-
-		</div>
-	</div>
-</div>
 @endsection
