@@ -1,0 +1,50 @@
+/* Stylisation pour le conteneur principal */
+.row {
+    margin-top: 20px; /* Marge supérieure de 20 pixels */
+}
+
+/* Stylisation pour la carte */
+.card {
+    border: 1px solid #ccc; /* Bordure de 1 pixel solide couleur grise */
+    border-radius: 8px; /* Coins arrondis de 8 pixels */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Stylisation pour l'en-tête de la carte */
+.card-header {
+    background-color: #00ff73; /* Couleur de fond bleue */
+    color: #fff; /* Couleur du texte blanc */
+    padding: 10px 15px; /* Remplissage intérieur */
+}
+
+/* Stylisation pour la table */
+.table {
+    width: 100%; /* Largeur de 100% */
+    margin-bottom: 0; /* Pas de marge inférieure */
+}
+
+/* Stylisation pour les cellules d'en-tête */
+.table th {
+    font-weight: bold; /* Texte en gras */
+}
+
+/* Stylisation pour les liens */
+a {
+    color: #007bff; /* Couleur du lien bleu */
+    text-decoration: none; /* Pas de soulignement */
+}
+
+a:hover {
+    color: #0056b3; /* Couleur du lien bleu foncé au survol */
+}
+
+/* Stylisation pour le bouton "View details" */
+.btn-info {
+    background-color: #17a2b8; /* Couleur de fond bleu clair */
+    border-color: #17a2b8; /* Couleur de la bordure bleu clair */
+}
+
+.btn-info:hover {
+    background-color: #138496; /* Couleur de fond bleu foncé au survol */
+    border-color: #117a8b; /* Couleur de la bordure bleu foncé au survol */
+}

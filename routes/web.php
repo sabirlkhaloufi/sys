@@ -43,3 +43,22 @@ Route::get('/post/{id}/edit', [App\Http\Controllers\postController::class, 'edit
 Route::put('/post/{id}', [App\Http\Controllers\postController::class, 'update'])->name('post.update');
 
 Route::delete('/post/{id}', [App\Http\Controllers\postController::class, 'destroy'])->name('post.destroy');
+
+
+
+
+Route::get('/donations/create', [App\Http\Controllers\DonationController::class, 'create'])->name('donations.create');
+Route::post('/donations/store', [App\Http\Controllers\DonationController::class, 'store'])->name('donations.store');
+
+
+
+// Routes accessibles uniquement pour les utilisateurs authentifiés
+
+    // Liste des donations
+    Route::get('/donations', [App\Http\Controllers\DonationController::class, 'index'])->name('donations.index');
+    // Détails d'une donation
+    Route::get('/donations/{id}', [App\Http\Controllers\DonationController::class, 'show'])->name('donations.show');
+    // Suppression d'une donation
+    Route::delete('/donations/{id}',[App\Http\Controllers\DonationController::class, 'destroy'])->name('donations.destroy');
+    // Ressource pour les articles (accessibles uniquement pour les utilisateurs authentifiés)
+    Route::resource('/posts', App\Http\Controllers\postController::class)->except('show');

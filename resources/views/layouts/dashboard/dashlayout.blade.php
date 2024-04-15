@@ -40,7 +40,7 @@
           </a>
 
           <ul class="sidebar-nav">
-           
+
 
             <li class="sidebar-item {{ Request::is('home') ? "active" :""  }}">
               <a class="sidebar-link" href="home">
@@ -51,10 +51,25 @@
 
             <li class="sidebar-item {{ Request::is('post') ? "active" :""  }}">
               <a class="sidebar-link" href="post">
-                <i class="align-middle" data-feather="user"></i>
+                <i class="align-middle" data-feather="edit"></i>
                 <span class="align-middle">Annonces</span>
               </a>
             </li>
+            <li class="sidebar-item {{ Request::is('donations.index') ? "active" : "" }}">
+                <a class="sidebar-link" href="{{ route('donations.index') }}">
+                    <i class="align-middle" data-feather="bell"></i>
+                    <span class="align-middle">Notifications</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item {{ Request::is('monpost') ? "active" : "" }}">
+                <a class="sidebar-link" href="monpost">
+                    <i class="align-middle" data-feather="user"></i>
+                    <span class="align-middle">Profil</span>
+                </a>
+            </li>
+
+
           </ul>
         </div>
       </nav>
@@ -147,41 +162,27 @@
                   </div>
                 </div>
               </li>
-             
+
+
               <li class="nav-item dropdown">
-                <a
-                  class="nav-icon dropdown-toggle d-inline-block d-sm-none"
-                  href="#"
-                  data-bs-toggle="dropdown"
-                >
-                  <i class="align-middle" data-feather="settings"></i>
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }}
                 </a>
 
-                <a
-                  class="nav-link dropdown-toggle d-none d-sm-inline-block"
-                  href="#"
-                  data-bs-toggle="dropdown"
-                >
-                  <img
-                    src="img/avatars/avatar.jpg"
-                    class="avatar img-fluid rounded me-1"
-                    alt="Charles Hall"
-                  />
-                  <span class="text-dark">Charles Hall</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end">
-                  <a class="dropdown-item" href="pages-profile.html"
-                    ><i class="align-middle me-1" data-feather="user"></i>
-                    Profile</a
-                  >
-                  
-                
-                  
-                  
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Log out</a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
-              </li>
+            </li>
+
+
             </ul>
           </div>
         </nav>
@@ -211,7 +212,7 @@
                   &copy;
                 </p>
               </div>
-              
+
             </div>
           </div>
         </footer>

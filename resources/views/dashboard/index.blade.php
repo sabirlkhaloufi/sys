@@ -2,7 +2,7 @@
         @extends("layouts.dashboard.dashlayout")
 
         @section("content")
-          <div class="container-fluid p-0">
+        <div class="container-fluid p-0">
             <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
 
             <div class="row">
@@ -117,10 +117,10 @@
                 </div>
               </div>
 
-             
+
             </div>
 
-           
+
 
             <div class="row">
               <div class="col-12 col-lg-8 col-xxl-9 d-flex">
@@ -203,7 +203,7 @@
                   </table>
                 </div>
               </div>
-             
+
             </div>
           </div>
           @endsection
